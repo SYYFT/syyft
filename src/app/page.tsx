@@ -23,18 +23,30 @@ import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
+import { 
+  Server, 
+  Cloud, 
+  Database, 
+  BarChart2, 
+  PieChart,
+  Activity,
+  GitBranch,
+  Workflow,
+  Layers,
+  Zap
+} from 'lucide-react'
 
-
-const clients = [
-  ['Apache Spark', logoPhobiaLight],
-  ['Snowflake', logoFamilyFund],
-  ['AWS', logoUnseal],
-  ['Azure', logoMailSmirk],
-  ['Google Cloud', logoHomeWork],
-  ['Kafka', logoGreenLife],
-  ['Airflow', logoBrightPath],
-  ['Tableau', logoNorthAdventures],
-  ['Power BI', logoPhobiaDark],
+const technologies = [
+  { name: 'Apache Spark', icon: Zap },
+  { name: 'Snowflake', icon: Database },
+  { name: 'AWS', icon: Layers },
+  { name: 'Azure', icon: Server },
+  { name: 'Google Cloud', icon: Cloud },
+  { name: 'Kafka', icon: Activity },
+  { name: 'Airflow', icon: Workflow },
+  { name: 'dbt', icon: GitBranch },
+  { name: 'Tableau', icon: BarChart2 },
+  { name: 'Power BI', icon: PieChart },
 ]
 
 function Clients() {
@@ -43,19 +55,22 @@ function Clients() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-          We leverage cutting-edge technologies to deliver powerful data solutions. 
+            We leverage cutting-edge technologies to deliver powerful data solutions.
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
         <FadeInStagger faster>
           <ul
             role="list"
-            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
+            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-5"
           >
-            {clients.map(([client, logo]) => (
-              <li key={client}>
+            {technologies.map((tech) => (
+              <li key={tech.name} className="flex flex-col items-center justify-center font-bold text-sm text-white">
                 <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
+                  <div className="flex flex-col items-center">
+                    <tech.icon className="h-8 w-8 text-white mb-2" />
+                    <span className="text-sm text-white text-center">{tech.name}</span>
+                  </div>
                 </FadeIn>
               </li>
             ))}

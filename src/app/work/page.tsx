@@ -71,12 +71,7 @@ function CaseStudies({
                     ))}
                   </div>
                   <div className="mt-8 flex">
-                    <Button
-                      href={caseStudy.href}
-                      aria-label={`Read case study: ${caseStudy.client}`}
-                    >
-                      Read case study
-                    </Button>
+
                   </div>
                   {caseStudy.testimonial && (
                     <Blockquote
@@ -96,44 +91,62 @@ function CaseStudies({
   )
 }
 
-const clients = [
+import { 
+  Server, 
+  Cloud, 
+  Database, 
+  BarChart2, 
+  PieChart,
+  Activity,
+  GitBranch,
+  Workflow,
+  Layers,
+  Zap
+} from 'lucide-react'
 
-  ['Snowflake', logoFamilyFund],
-  ['AWS', logoUnseal],
-  ['Azure', logoMailSmirk],
-  ['Google Cloud', logoHomeWork],
-  ['Kafka', logoGreenLife],
-  ['Airflow', logoBrightPath],
-  ['Tableau', logoNorthAdventures],
-
+const technologies = [
+  { name: 'Apache Spark', icon: Zap },
+  { name: 'Snowflake', icon: Database },
+  { name: 'AWS', icon: Layers },
+  { name: 'Azure', icon: Server },
+  { name: 'Google Cloud', icon: Cloud },
+  { name: 'Kafka', icon: Activity },
+  { name: 'Airflow', icon: Workflow },
+  { name: 'dbt', icon: GitBranch },
+  { name: 'Tableau', icon: BarChart2 },
+  { name: 'Power BI', icon: PieChart },
 ]
+
 
 function Clients() {
   return (
-    <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <FadeIn>
-        <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          You’re in good company
-        </h2>
-      </FadeIn>
-      <FadeInStagger className="mt-10" faster>
-        <Border as={FadeIn} />
-        <ul
-          role="list"
-          className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4"
-        >
-          {clients.map(([client, logo]) => (
-            <li key={client} className="group">
-              <FadeIn className="overflow-hidden">
-                <Border className="pt-12 group-[&:nth-child(-n+2)]:-mt-px sm:group-[&:nth-child(3)]:-mt-px lg:group-[&:nth-child(4)]:-mt-px">
-                  <Image src={logo} alt={client} unoptimized />
-                </Border>
-              </FadeIn>
-            </li>
-          ))}
-        </ul>
-      </FadeInStagger>
-    </Container>
+    <div className="mt-24 rounded-4xl bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
+      <Container>
+        <FadeIn className="flex items-center gap-x-8">
+          <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
+            We leverage cutting-edge technologies to deliver powerful data solutions.
+          </h2>
+          <div className="h-px flex-auto bg-neutral-800" />
+        </FadeIn>
+        <FadeInStagger faster>
+          <ul
+            role="list"
+            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-5"
+          >
+            {technologies.map((tech) => (
+              <li key={tech.name} className="flex flex-col items-center justify-center font-bold text-sm text-white">
+                <FadeIn>
+                  <div className="flex flex-col items-center">
+                    <tech.icon className="h-8 w-8 text-white mb-2" />
+                    <span className="text-sm text-white text-center">{tech.name}</span>
+                  </div>
+                </FadeIn>
+              </li>
+            ))}
+          </ul>
+        </FadeInStagger>
+      </Container>
+    </div>
   )
 }
 
@@ -163,9 +176,9 @@ export default async function Work() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Mail Smirk', logo: logoMailSmirk }}
+        client={{ name: 'Mail ', logo: logoPhobia }}
       >
-        We approached <em>Studio</em> because we loved their past work. They
+        We approached <em>Syyft</em> because we loved their past work. They
         delivered something remarkably similar in record time.
       </Testimonial>
 
