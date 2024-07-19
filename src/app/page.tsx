@@ -90,7 +90,7 @@ function CaseStudies({
                 className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8 hover:scale-105 case-study-card"
               >
                 <h3>
-                  <Link href={caseStudy.href}>
+                  <Link href={''}>
                     <span className="absolute inset-0 rounded-3xl" />
                     <Image
                       src={caseStudy.logo}
