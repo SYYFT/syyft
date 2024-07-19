@@ -162,7 +162,7 @@ function Services() {
             </ListItem>
             <ListItem title="Data Warehousing">
               We implement modern data warehousing solutions that enable fast,
-              reliable access to your organization's data assets.
+              reliable access to your organizations data assets.
             </ListItem>
             <ListItem title="Data Governance and Quality">
               We establish comprehensive data governance frameworks and quality
@@ -209,7 +209,7 @@ export default async function Home() {
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Amazon', logo: logoPhobiaDark }}
       >
-        Syyft's expertise in data architecture and ETL processes has
+        Syyft expertise in data architecture and ETL processes has
         significantly improved our data flow and analytics capabilities. Their
         solutions are robust, scalable, and perfectly aligned with our business
         needs.
