@@ -206,12 +206,12 @@ export default async function Home() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="hero-title font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Empowering businesses through intelligent data solutions.
+            Transforming Data to Help Increase Revenue and Reduce Costs.
           </h1>
           <p className="hero-description mt-6 text-xl text-neutral-600">
-            We are Syyft, a data architecture and ETL solutions provider. We
-            help businesses harness the power of their data to drive growth and
-            innovation.
+          At SYYFT, we harness the power of your data to drive efficiency and growth. 
+          Our services are designed to unlock the full potential of your data, ensuring
+          you can make informed decisions that boost revenue and cut costs.
           </p>
         </FadeIn>
       </Container>
