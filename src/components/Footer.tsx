@@ -2,8 +2,9 @@ import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { Logo } from '@/components/Logo'
+import Logo from '@/images/2.png'
 import { socialMediaProfiles } from '@/components/SocialMedia'
+import Image from 'next/image'
 
 const navigation = [
 
@@ -101,9 +102,9 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
           <Navigation />
         </div>
-        <div className="mb-20 mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-950/10 pt-12">
-          <Link href="/" aria-label="Home">
-           Syyft
+        <div className="mb-20 mt-24 flex items-center justify-between border-t border-neutral-950/10 pt-12">
+          <Link href="/" aria-label="Home" className="flex items-center">
+            <Image src={Logo} alt="Syyft Logo" width={100} height={100} />
           </Link>
           <p className="text-sm text-neutral-700">
             © Syyft Inc. {new Date().getFullYear()}
