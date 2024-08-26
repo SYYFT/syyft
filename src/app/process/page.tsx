@@ -58,7 +58,7 @@ function Discover() {
     <Section title="Discover" image={{ src: imageWhiteboard }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          We begin by thoroughly assessing our client's{' '}
+          We begin by thoroughly assessing our client&apos;s{' '}
           <strong className="font-semibold text-neutral-950">data landscape</strong> and
           business objectives, embedding ourselves in their operations to understand
           their unique data challenges and opportunities.
@@ -66,7 +66,7 @@ function Discover() {
         <p>
           Our team of data experts conducts comprehensive interviews with key stakeholders,
           analyzes current data flows, and evaluates the quality and accessibility of existing data.
-          We perform a detailed audit of the client's{' '}
+          We perform a detailed audit of the client&apos;s{' '}
           <strong className="font-semibold text-neutral-950">data infrastructure</strong>{' '}
           and processes.
         </p>
