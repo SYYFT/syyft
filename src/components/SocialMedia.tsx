@@ -37,24 +37,12 @@ function GitHubIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function LinkedInIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="..."
-      />
-    </svg>
-  )
-}
-
 
 
 export const socialMediaProfiles = [
-  { title: 'Facebook', href: 'https://www.facebook.com/syyft.co', icon: FacebookIcon },
-  { title: 'Instagram', href: 'https://www.instagram.com/syyft.co/', icon: InstagramIcon },
-  { title: 'LinkedIn', href: 'https://www.linkedin.com/company/syyft', icon: LinkedInIcon }
+  { title: 'Facebook', href: 'https://facebook.com', icon: FacebookIcon },
+  { title: 'Instagram', href: 'https://instagram.com', icon: InstagramIcon },
+  { title: 'GitHub', href: 'https://github.com', icon: GitHubIcon }
 ]
 
 export function SocialMedia({

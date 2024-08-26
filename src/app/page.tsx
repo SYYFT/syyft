@@ -11,7 +11,6 @@ import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
-import { Users } from 'lucide-react'
 
 import logoBrightPath from '@/images/clients/bright-path/logo-light.svg'
 import logoFamilyFund from '@/images/clients/family-fund/logo-light.svg'
@@ -34,11 +33,7 @@ import {
   GitBranch,
   Workflow,
   Layers,
-  Zap,
-  Shield,
-  Cpu,
-  TrendingUp,
-  Sliders
+  Zap
 } from 'lucide-react'
 
 const technologies = [
@@ -86,40 +81,59 @@ function Clients() {
   )
 }
 
-function KeyFeatures() {
-  const features = [
-    { icon: Shield, title: 'Data Security', description: 'Enterprise-grade security measures to protect your valuable data assets.' },
-    { icon: Cpu, title: 'Scalable Architecture', description: 'Flexible solutions that grow with your business needs.' },
-    { icon: TrendingUp, title: 'Real-time Analytics', description: 'Instant insights for faster decision-making processes.' },
-    { icon: Sliders, title: 'Custom Integrations', description: 'Seamless connections with your existing tools and platforms.' },
-  ]
-
+function CaseStudies({
+  caseStudies,
+}: {
+  caseStudies: Array<MDXEntry<CaseStudy>>
+}) {
   return (
     <>
       <SectionIntro
-        title="Powerful Features for Modern Data Solutions"
+        title="Transforming data into actionable insights"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Our data architecture and ETL solutions come packed with cutting-edge features
-          designed to maximize the value of your data.
+          We believe that efficient data architecture and ETL processes are the
+          foundation of informed decision-making and business growth.
         </p>
       </SectionIntro>
       <Container className="mt-16">
-        <FadeInStagger className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature) => (
-            <FadeIn key={feature.title} className="flex">
-              <div className="flex flex-col items-start">
-                <div className="rounded-2xl bg-neutral-950 p-4 ring-1 ring-neutral-950/10">
-                  <feature.icon className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="mt-4 font-display text-xl font-semibold text-neutral-950">
-                  {feature.title}
+        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {caseStudies.map((caseStudy) => (
+            <FadeIn key={caseStudy.href} className="flex">
+              <article 
+                className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8 hover:scale-105 case-study-card"
+              >
+                <h3>
+                  <Link href={''}>
+                    <span className="absolute inset-0 rounded-3xl" />
+                    <Image
+                      src={caseStudy.logo}
+                      alt={caseStudy.client}
+                      className="h-16 w-16"
+                      unoptimized
+                    />
+                  </Link>
                 </h3>
-                <p className="mt-2 text-base text-neutral-600">
-                  {feature.description}
+                <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
+                  <time
+                    dateTime={caseStudy.date.split('-')[0]}
+                    className="font-semibold"
+                  >
+                    {caseStudy.date.split('-')[0]}
+                  </time>
+                  <span className="text-neutral-300" aria-hidden="true">
+                    /
+                  </span>
+                  <span>Case study</span>
                 </p>
-              </div>
+                <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
+                  {caseStudy.title}
+                </p>
+                <p className="mt-4 text-base text-neutral-600">
+                  {caseStudy.description}
+                </p>
+              </article>
             </FadeIn>
           ))}
         </FadeInStagger>
@@ -176,57 +190,7 @@ function Services() {
   )
 }
 
-function AboutUs() {
-  const team = [
-    {
-      name: 'Francis Osei Boafo',
-      role: 'Data Architect',
-      bio: 'Francis brings extensive experience in designing and implementing robust data architectures for diverse industries.',
-    },
-    {
-      name: 'Diana Valladares',
-      role: 'Data Architect / Data Scientist',
-      bio: 'Diana combines her expertise in data architecture with advanced data science skills to deliver comprehensive data solutions.',
-    },
-  ]
 
-  return (
-    <>
-      <SectionIntro
-        eyebrow="About Us"
-        title="Meet the Syyft Team"
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
-        <p>
-          We're a small but mighty team of data experts passionate about
-          transforming businesses through intelligent data solutions.
-        </p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <FadeInStagger className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-          {team.map((member) => (
-            <FadeIn key={member.name} className="flex">
-              <div className="flex flex-col items-start">
-                <div className="rounded-2xl bg-neutral-950 p-4 ring-1 ring-neutral-950/10">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="mt-4 font-display text-xl font-semibold text-neutral-950">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-base font-semibold text-neutral-700">
-                  {member.role}
-                </p>
-                <p className="mt-2 text-base text-neutral-600">
-                  {member.bio}
-                </p>
-              </div>
-            </FadeIn>
-          ))}
-        </FadeInStagger>
-      </Container>
-    </>
-  )
-}
 
 export const metadata: Metadata = {
   description:
@@ -234,6 +198,8 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
+  let caseStudies = (await loadCaseStudies()).slice(0, 3)
+
   return (
     <>
 
@@ -252,13 +218,13 @@ export default async function Home() {
 
       <Clients />
 
-      <KeyFeatures />
+      <CaseStudies caseStudies={caseStudies} />
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Amazon', logo: logoPhobiaDark }}
       >
-        Syyft's expertise in data architecture and ETL processes has
+        Syyft expertise in data architecture and ETL processes has
         significantly improved our data flow and analytics capabilities. Their
         solutions are robust, scalable, and perfectly aligned with our business
         needs.
@@ -266,7 +232,8 @@ export default async function Home() {
 
       <Services />
 
-      <AboutUs />
+
+
 
       <ContactSection />
     </>
