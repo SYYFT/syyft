@@ -9,6 +9,7 @@ export function SectionIntro({
   children,
   smaller = false,
   invert = false,
+  centered = false,
   ...props
 }: Omit<
   React.ComponentPropsWithoutRef<typeof Container>,
@@ -19,10 +20,11 @@ export function SectionIntro({
   children?: React.ReactNode
   smaller?: boolean
   invert?: boolean
+  centered?: boolean
 }) {
   return (
     <Container {...props}>
-      <FadeIn className="max-w-2xl">
+      <FadeIn className={clsx("max-w-2xl", centered && "mx-auto text-center")}>
         <h2>
           {eyebrow && (
             <>
@@ -44,6 +46,7 @@ export function SectionIntro({
                 ? 'text-2xl font-semibold'
                 : 'text-4xl font-medium sm:text-5xl',
               invert ? 'text-white' : 'text-neutral-950',
+              centered && 'whitespace-nowrap'
             )}
           >
             {title}

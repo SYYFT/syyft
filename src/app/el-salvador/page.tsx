@@ -86,6 +86,7 @@ function KeyFeatures() {
       <SectionIntro
         title="Características Poderosas para Soluciones de Datos Modernas"
         className="mt-24 sm:mt-32 lg:mt-40"
+        centered={true}
       >
         <p>
           Nuestras soluciones de arquitectura de datos y ETL vienen cargadas con características 
@@ -100,7 +101,7 @@ function KeyFeatures() {
                 <div className="rounded-2xl bg-neutral-50 p-4 ring-1 ring-neutral-50/10">
                   <feature.icon className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="mt-4 font-display text-xl font-semibold text-neutral-50">
+                <h3 className="mt-4 font-display text-xl font-semibold text-neutral-900">
                   {feature.title}
                 </h3>
                 <p className="mt-2 text-base text-neutral-400">
@@ -244,7 +245,7 @@ function RealWorldImpact() {
           {impactData.map((item, index) => (
             <FadeIn key={index}>
               <div className="mb-12 border-b border-neutral-800 pb-12 last:border-b-0 last:pb-0">
-                <h3 className="font-display text-2xl font-semibold text-neutral-50 mb-4">{item.technology}</h3>
+                <h3 className="font-display text-2xl font-semibold text-neutral-900 mb-4">{item.technology}</h3>
                 <p className="text-neutral-400 mb-2"><strong>Caso de Uso Amigable para PyMEs:</strong> {item.useCase}</p>
                 <p className="text-neutral-400 mb-2"><strong>Ejemplo del Mundo Real:</strong> {item.example}</p>
                 <p className="text-neutral-400"><strong>Impacto en el Negocio:</strong> {item.impact}</p>
@@ -275,7 +276,7 @@ function AboutUs() {
     <>
       <SectionIntro
         eyebrow="Sobre Nosotros"
-        title="Conoce al Equipo Syyft"
+        title="Conoce al equipo Syyft"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
@@ -291,7 +292,7 @@ function AboutUs() {
                 <div className="rounded-2xl bg-neutral-50 p-4 ring-1 ring-neutral-50/10">
                   <Users className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="mt-4 font-display text-xl font-semibold text-neutral-50">
+                <h3 className="mt-4 font-display text-xl font-semibold text-neutral-900">
                   {member.name}
                 </h3>
                 <p className="mt-1 text-base font-semibold text-neutral-300">
@@ -320,10 +321,10 @@ export default async function Home() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <div className="flex flex-col md:flex-row items-start justify-between">
           <FadeIn className="max-w-3xl">
-            <h1 className="hero-title font-display text-5xl font-medium tracking-tight text-neutral-50 [text-wrap:balance] sm:text-7xl">
+            <h1 className="hero-title font-display text-5xl font-medium tracking-tight text-neutral-900 [text-wrap:balance] sm:text-7xl">
               Transformando Datos para Ayudar a Aumentar los Ingresos y Reducir los Costos.
             </h1>
-            <p className="hero-description mt-6 text-xl text-neutral-400">
+            <p className="hero-description mt-6 text-xl text-neutral-600">
               En SYYFT, aprovechamos el poder de sus datos para impulsar la eficiencia y el crecimiento. 
               Nuestros servicios están diseñados para desbloquear todo el potencial de sus datos, asegurando
               que pueda tomar decisiones informadas que impulsen los ingresos y reduzcan los costos.
