@@ -3,8 +3,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
+import { Container } from '../components/Container'
+import { FadeIn } from '../components/FadeIn'
 
 export function DataFlowAnimation() {
   const [isAnimating, setIsAnimating] = useState(true);

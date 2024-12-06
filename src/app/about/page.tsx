@@ -1,13 +1,13 @@
 import { type Metadata } from 'next'
 
-import { ContactSection } from '@/components/ContactSection'
-import { Container } from '@/components/Container'
-import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { GridList, GridListItem } from '@/components/GridList'
-import { PageIntro } from '@/components/PageIntro'
-import { SectionIntro } from '@/components/SectionIntro'
-import { StatList, StatListItem } from '@/components/StatList'
-import { loadArticles } from '@/lib/mdx'
+import { ContactSection } from '../../components/ContactSection'
+import { Container } from '../../components/Container'
+import { FadeIn, FadeInStagger } from '../../components/FadeIn'
+import { GridList, GridListItem } from '../../components/GridList'
+import { PageIntro } from '../../components/PageIntro'
+import { SectionIntro } from '../../components/SectionIntro'
+import { StatList, StatListItem } from '../../components/StatList'
+import { loadArticles } from '../../lib/mdx'
 import { Users } from 'lucide-react'
 
 function Values() {

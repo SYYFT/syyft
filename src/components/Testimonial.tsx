@@ -1,9 +1,7 @@
-import Image, { type ImageProps } from 'next/image'
 import clsx from 'clsx'
-
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
-import { GridPattern } from '@/components/GridPattern'
+import { Container } from './Container'
+import { FadeIn } from './FadeIn'
+import { GridPattern } from './GridPattern'
 
 export function Testimonial({
   children,
@@ -11,7 +9,7 @@ export function Testimonial({
   className,
 }: {
   children: React.ReactNode
-  client: { logo: ImageProps['src']; name: string }
+  client: { name: string }
   className?: string
 }) {
   return (
@@ -29,12 +27,12 @@ export function Testimonial({
         <FadeIn>
           <figure className="mx-auto max-w-4xl">
             <blockquote className="relative font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
-              <p className="before:content-['“'] after:content-['”'] sm:before:absolute sm:before:right-full">
-                {children}
+              <p>
+                "{children}"
               </p>
             </blockquote>
-            <figcaption className="mt-10">
-              <Image src={client.logo} alt={client.name} unoptimized />
+            <figcaption className="mt-10 text-base font-semibold tracking-tight text-neutral-950">
+              — {client.name}
             </figcaption>
           </figure>
         </FadeIn>

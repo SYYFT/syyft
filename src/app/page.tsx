@@ -1,16 +1,15 @@
 // File: src/app/page.tsx
 
 import { type Metadata } from 'next'
-import { ContactSection } from '@/components/ContactSection'
-import { Container } from '@/components/Container'
-import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { List, ListItem } from '@/components/List'
-import { SectionIntro } from '@/components/SectionIntro'
-import { StylizedImage } from '@/components/StylizedImage'
-import { Testimonial } from '@/components/Testimonial'
+import { ContactSection } from '../components/ContactSection'
+import { Container } from '../components/Container'
+import { FadeIn, FadeInStagger } from '../components/FadeIn'
+import { List, ListItem } from '../components/List'
+import { SectionIntro } from '../components/SectionIntro'
+import { StylizedImage } from '../components/StylizedImage'
+import { Testimonial } from '../components/Testimonial'
 import { Users } from 'lucide-react'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import imageLaptop from '@/images/laptop.jpg'
+import imageLaptop from '../images/laptop.jpg'
 import { 
   Server, 
   Cloud, 
@@ -28,7 +27,7 @@ import {
   Sliders,
   Calendar
 } from 'lucide-react'
-import { Button } from '@/components/Button'
+import { Button } from '../components/Button'
 
 const technologies = [
   { name: 'Apache Spark', icon: Zap },
@@ -349,7 +348,7 @@ export default async function Home() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Amazon', logo: logoPhobiaDark }}
+        client={{ name: 'David, CEO' }}
       >
         Syyft's expertise in data architecture and ETL processes has
         significantly improved our data flow and analytics capabilities. Their

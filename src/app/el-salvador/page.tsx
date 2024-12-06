@@ -1,14 +1,14 @@
 import { type Metadata } from 'next'
-import { ContactSection } from '@/components/ContactSection'
-import { Container } from '@/components/Container'
-import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { List, ListItem } from '@/components/List'
-import { SectionIntro } from '@/components/SectionIntro'
-import { StylizedImage } from '@/components/StylizedImage'
-import { Testimonial } from '@/components/Testimonial'
+import { ContactSection } from '../../components/ContactSection'
+import { Container } from '../../components/Container'
+import { FadeIn, FadeInStagger } from '../../components/FadeIn'
+import { List, ListItem } from '../../components/List'
+import { SectionIntro } from '../../components/SectionIntro'
+import { StylizedImage } from '../../components/StylizedImage'
+import { Testimonial } from '../../components/Testimonial'
 import { Users } from 'lucide-react'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import imageLaptop from '@/images/laptop.jpg'
+import logoPhobiaDark from '../../images/clients/phobia/logo-dark.svg'
+import imageLaptop from '../../images/laptop.jpg'
 import { 
   Server, 
   Cloud, 
@@ -26,7 +26,7 @@ import {
   Sliders,
   Calendar
 } from 'lucide-react'
-import { Button } from '@/components/Button'
+import { Button } from '../../components/Button'
 
 const technologies = [
   { name: 'Apache Spark', icon: Zap },

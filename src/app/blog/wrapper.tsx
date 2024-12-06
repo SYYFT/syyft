@@ -1,10 +1,10 @@
-import { ContactSection } from '@/components/ContactSection'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
-import { MDXComponents } from '@/components/MDXComponents'
-import { PageLinks } from '@/components/PageLinks'
-import { formatDate } from '@/lib/formatDate'
-import { type Article, type MDXEntry, loadArticles } from '@/lib/mdx'
+import { ContactSection } from '../../components/ContactSection'
+import { Container } from '../../components/Container'
+import { FadeIn } from '../../components/FadeIn'
+import { MDXComponents } from '../../components/MDXComponents'
+import { PageLinks } from '../../components/PageLinks'
+import { formatDate } from '../../lib/formatDate'
+import { type Article, type MDXEntry, loadArticles } from '../../lib/mdx'
 
 export default async function BlogArticleWrapper({
   article,

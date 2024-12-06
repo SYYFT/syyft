@@ -2,14 +2,14 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Border } from '@/components/Border'
-import { Button } from '@/components/Button'
-import { ContactSection } from '@/components/ContactSection'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
-import { PageIntro } from '@/components/PageIntro'
-import { formatDate } from '@/lib/formatDate'
-import { loadArticles } from '@/lib/mdx'
+import { Border } from '../../components/Border'
+import { Button } from '../../components/Button'
+import { ContactSection } from '../../components/ContactSection'
+import { Container } from '../../components/Container'
+import { FadeIn } from '../../components/FadeIn'
+import { PageIntro } from '../../components/PageIntro'
+import { formatDate } from '../../lib/formatDate'
+import { loadArticles } from '../../lib/mdx'
 
 export const metadata: Metadata = {
   title: 'Blog',

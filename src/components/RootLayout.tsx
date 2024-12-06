@@ -13,14 +13,14 @@ import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { Footer } from '@/components/Footer'
-import { GridPattern } from '@/components/GridPattern'
-import { Offices } from '@/components/Offices'
-import { SocialMedia } from '@/components/SocialMedia'
+import { Button } from './Button'
+import { Container } from './Container'
+import { Footer } from './Footer'
+import { GridPattern } from './GridPattern'
+import { Offices } from './Offices'
+import { SocialMedia } from './SocialMedia'
 import Image from 'next/image'
-import Logo from '@/images/2.png'
+import Logo from '../images/2.png'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
