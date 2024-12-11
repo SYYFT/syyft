@@ -79,5 +79,5 @@ export function Blockquote(
     return <BlockquoteWithImage {...(props as BlockquoteWithImageProps)} />
   }
 
-  return <BlockquoteWithoutImage {...props} />
+  return <BlockquoteWithoutImage {...(props as BlockquoteWithoutImageProps)} />
 }
