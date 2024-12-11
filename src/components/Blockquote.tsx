@@ -5,17 +5,26 @@ import { Border } from './Border'
 
 type ImagePropsWithOptionalAlt = Omit<ImageProps, 'alt'> & { alt?: string }
 
+type BlockquoteWithImageProps = {
+  author: { name: string; role: string }
+  children: React.ReactNode
+  className?: string
+  image: ImagePropsWithOptionalAlt
+}
+
+type BlockquoteWithoutImageProps = {
+  author: { name: string; role: string }
+  children: React.ReactNode
+  className?: string
+  image?: undefined
+}
+
 function BlockquoteWithImage({
   author,
   children,
   className,
   image,
-}: {
-  author: { name: string; role: string }
-  children: React.ReactNode
-  className?: string
-  image: ImagePropsWithOptionalAlt
-}) {
+}: BlockquoteWithImageProps) {
   return (
     <figure
       className={clsx(
@@ -48,11 +57,7 @@ function BlockquoteWithoutImage({
   author,
   children,
   className,
-}: {
-  author: { name: string; role: string }
-  children: React.ReactNode
-  className?: string
-}) {
+}: BlockquoteWithoutImageProps) {
   return (
     <Border position="left" className={clsx('pl-8', className)}>
       <figure className="text-sm">
@@ -68,14 +73,10 @@ function BlockquoteWithoutImage({
 }
 
 export function Blockquote(
-  props:
-    | React.ComponentPropsWithoutRef<typeof BlockquoteWithImage>
-    | (React.ComponentPropsWithoutRef<typeof BlockquoteWithoutImage> & {
-        image?: undefined
-      }),
+  props: BlockquoteWithImageProps | BlockquoteWithoutImageProps
 ) {
-  if (props.image) {
-    return <BlockquoteWithImage {...props} />
+  if ('image' in props && props.image !== undefined) {
+    return <BlockquoteWithImage {...(props as BlockquoteWithImageProps)} />
   }
 
   return <BlockquoteWithoutImage {...props} />
