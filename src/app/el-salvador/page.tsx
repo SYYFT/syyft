@@ -346,7 +346,7 @@ export default async function Home() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Amazon', logo: logoPhobiaDark }}
+        client={{ name: 'David, CEO' }}
       >
         La experiencia de Syyft en arquitectura de datos y procesos ETL ha
         mejorado significativamente nuestro flujo de datos y capacidades analíticas. Sus
