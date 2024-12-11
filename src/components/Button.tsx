@@ -1,12 +1,15 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 
-type ButtonProps = {
+type ButtonLinkProps = {
   invert?: boolean
-} & (
-  | React.ComponentPropsWithoutRef<typeof Link>
-  | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
-)
+} & React.ComponentPropsWithoutRef<typeof Link>
+
+type ButtonButtonProps = {
+  invert?: boolean
+} & React.ComponentPropsWithoutRef<'button'>
+
+type ButtonProps = ButtonLinkProps | ButtonButtonProps
 
 export function Button({
   invert = false,
@@ -24,17 +27,17 @@ export function Button({
 
   let inner = <span className="relative top-px">{children}</span>
 
-  if (typeof props.href === 'undefined') {
+  if ('href' in props) {
     return (
-      <button className={className} {...props}>
+      <Link className={className} {...(props as ButtonLinkProps)}>
         {inner}
-      </button>
+      </Link>
     )
   }
 
   return (
-    <Link className={className} {...props}>
+    <button type="button" className={className} {...(props as ButtonButtonProps)}>
       {inner}
-    </Link>
+    </button>
   )
 }
