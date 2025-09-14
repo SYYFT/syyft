@@ -137,9 +137,6 @@ function Navigation() {
       <NavigationRow>
         <NavigationItem href="/about">About Us</NavigationItem>
       </NavigationRow>
-      <NavigationRow>
-        <NavigationItem href="/process">Our Process</NavigationItem>
-      </NavigationRow>
     </nav>
   )
 }

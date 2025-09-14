@@ -12,7 +12,6 @@ const navigation = [
     title: 'Company',
     links: [
       { title: 'About', href: '/about' },
-      { title: 'Process', href: '/process' },
       { title: 'Contact us', href: '/contact' },
     ],
   },
@@ -107,7 +106,7 @@ export function Footer() {
             <Image src={Logo} alt="Syyft Logo" width={100} height={100} />
           </Link>
           <p className="text-sm text-neutral-700">
-            © Syyft Inc. {new Date().getFullYear()}
+            © Pushing Buttons, LLC d.b.a. SYYFT {new Date().getFullYear()}
           </p>
         </div>
       </FadeIn>
