@@ -20,12 +20,15 @@ import {
 
 export function RealWorldImpact() {
   const [selectedTech, setSelectedTech] = useState(null)
+  const [hoveredTech, setHoveredTech] = useState<number | null>(null)
 
   const impactData = [
     {
       id: 'spark',
       technology: 'Apache Spark',
       icon: Zap,
+      color: "bg-orange-50 border-orange-200 text-orange-600",
+      iconBg: "bg-orange-500",
       useCase: 'A local e-commerce shop used Spark to analyze customer data, boosting sales by 20% in three months through personalized email campaigns.',
       example: 'NASA JPL reduced data processing time from 4 hours to 5 minutes for analyzing telemetry data from space missions.',
       impact: 'Increases profitability through real-time data analysis. Boosts sales via personalized marketing, potentially increasing conversion rates by 10-30%.'
@@ -34,6 +37,8 @@ export function RealWorldImpact() {
       id: 'snowflake',
       technology: 'Snowflake',
       icon: Database,
+      color: "bg-blue-50 border-blue-200 text-blue-600",
+      iconBg: "bg-blue-500",
       useCase: 'A growing accounting firm consolidated client data, saving hours each week and improving client satisfaction.',
       example: 'Capital One reduced query runtime from 20 minutes to 2 seconds after migrating to Snowflake\'s cloud data platform.',
       impact: 'Enhances profitability by reducing data costs by 20-40%. Increases sales through faster customer service, potentially boosting retention by 15-25%.'
@@ -42,6 +47,8 @@ export function RealWorldImpact() {
       id: 'aws',
       technology: 'AWS',
       icon: Layers,
+      color: "bg-yellow-50 border-yellow-200 text-yellow-600",
+      iconBg: "bg-yellow-500",
       useCase: 'A family-owned manufacturing business moved their systems to AWS. They cut IT costs by 30% and can now access their data securely from anywhere – super helpful for managing operations on the go!',
       example: 'Airbnb leveraged AWS to launch in 190 countries, supporting over 4 million listings as of 2023.',
       impact: 'Improves profitability through reduced IT infrastructure costs, often 20-30% savings. Increases sales by enabling rapid scaling and deployment of new services, potentially accelerating time-to-market by 30-50% for new products or features.'
@@ -74,6 +81,8 @@ export function RealWorldImpact() {
       id: 'airflow',
       technology: 'Airflow',
       icon: Workflow,
+      color: "bg-green-50 border-green-200 text-green-600",
+      iconBg: "bg-green-500",
       useCase: 'A boutique marketing agency automated their reporting with Airflow. They now deliver client reports 50% faster and took on new clients without hiring more staff.',
       example: 'Astronomer reports that clients using Airflow have seen a 90% reduction in data pipeline errors.',
       impact: 'Enhances profitability by automating data workflows, reducing manual labor costs by 30-50%. Increases sales by improving service quality and capacity, allowing businesses to take on more clients or projects without proportional cost increases.'
@@ -82,6 +91,8 @@ export function RealWorldImpact() {
       id: 'dbt',
       technology: 'dbt',
       icon: GitBranch,
+      color: "bg-purple-50 border-purple-200 text-purple-600",
+      iconBg: "bg-purple-500",
       useCase: 'A growing SaaS startup used dbt to clean up their messy data. Their team now spends 60% less time arguing about numbers and more time improving their product.',
       example: 'Netlify achieved 90% faster data transformations using dbt.',
       impact: 'Boosts profitability by streamlining data processes, potentially reducing data-related labor costs by 40-60%. Increases sales indirectly by enabling faster, more accurate business insights, leading to better product decisions and potentially 10-20% faster feature releases.'
@@ -120,18 +131,36 @@ export function RealWorldImpact() {
       <Container className="mt-16">
         <FadeInStagger>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            {impactData.map((item) => (
+            {impactData.map((item, index) => (
               <FadeIn key={item.id}>
                 <button
                   onClick={() => setSelectedTech(item)}
-                  className="group relative flex flex-col items-center justify-center p-6 bg-white rounded-2xl border border-neutral-200 hover:border-neutral-300 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  onMouseEnter={() => setHoveredTech(index)}
+                  onMouseLeave={() => setHoveredTech(null)}
+                  className={`group relative flex flex-col items-center justify-center p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${
+                    hoveredTech === index 
+                      ? `${item.color} transform scale-105 shadow-xl` 
+                      : 'bg-white border-neutral-200 hover:border-neutral-300 hover:shadow-lg'
+                  }`}
                 >
-                  <div className="rounded-xl bg-neutral-950 p-3 mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <div className={`rounded-xl p-3 mb-3 transition-all duration-300 ${
+                    hoveredTech === index 
+                      ? `${item.iconBg} scale-110` 
+                      : 'bg-neutral-950 group-hover:scale-110'
+                  }`}>
                     <item.icon className="h-8 w-8 text-white" />
                   </div>
-                  <span className="text-sm font-semibold text-neutral-950 text-center leading-tight">
+                  <span className={`text-sm font-semibold text-center leading-tight transition-colors ${
+                    hoveredTech === index ? '' : 'text-neutral-950'
+                  }`}>
                     {item.technology}
                   </span>
+                  
+                  {hoveredTech === index && (
+                    <div className="absolute -top-2 -right-2">
+                      <div className="w-4 h-4 bg-current rounded-full opacity-75 animate-ping"></div>
+                    </div>
+                  )}
                 </button>
               </FadeIn>
             ))}

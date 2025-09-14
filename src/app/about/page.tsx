@@ -8,6 +8,7 @@ import { GridList, GridListItem } from '../../components/GridList'
 import { PageIntro } from '../../components/PageIntro'
 import { SectionIntro } from '../../components/SectionIntro'
 import { StatList, StatListItem } from '../../components/StatList'
+import { AboutVisual } from '../../components/AboutVisual'
 import { loadArticles } from '../../lib/mdx'
 import { Users, ExternalLink, Github, Linkedin } from 'lucide-react'
 import depaulLogo from '../../images/depaul univesity.png'
@@ -167,27 +168,41 @@ export default async function About() {
 
   return (
     <>
-      <PageIntro eyebrow="About Syyft" title="Expertise built through continuous learning and proven results">
-        <p>
-          Syyft specializes in delivering practical data solutions for small to medium organizations, 
-          combining technical excellence with clear, actionable insights.
-        </p>
-        <div className="mt-10 max-w-2xl space-y-6 text-base">
-          <p>
-            Founded on a commitment to continuous learning and innovation, Syyft has developed 
-            comprehensive expertise in data architecture and analytics over five years of 
-            dedicated practice. Through progressive leadership roles and hands-on experience, 
-            we have cultivated deep knowledge in modern data technologies and methodologies.
-          </p>
-          <p>
-            Our approach emerged from recognizing the growing demand for accessible data solutions 
-            among small and medium organizations. Syyft bridges the gap between complex enterprise 
-            systems and practical business needs, delivering tailored solutions that drive 
-            measurable results. We are committed to empowering organizations with the tools 
-            and knowledge needed to leverage data effectively.
-          </p>
+      <Container className="mt-24 sm:mt-32 md:mt-56">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
+          <FadeIn className="max-w-2xl">
+            <div className="text-base font-semibold text-neutral-950">About Syyft</div>
+            <h1 className="mt-6 font-display text-4xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-5xl">
+              Expertise built through continuous learning and proven results
+            </h1>
+            <p className="mt-6 text-xl text-neutral-600">
+              Syyft specializes in delivering practical data solutions for small to medium organizations, 
+              combining technical excellence with clear, actionable insights.
+            </p>
+            <div className="mt-10 max-w-2xl space-y-6 text-base">
+              <p className="text-neutral-600">
+                Founded on a commitment to continuous learning and innovation, Syyft has developed 
+                comprehensive expertise in data architecture and analytics over five years of 
+                dedicated practice. Through progressive leadership roles and hands-on experience, 
+                we have cultivated deep knowledge in modern data technologies and methodologies.
+              </p>
+              <p className="text-neutral-600">
+                Our approach emerged from recognizing the growing demand for accessible data solutions 
+                among small and medium organizations. Syyft bridges the gap between complex enterprise 
+                systems and practical business needs, delivering tailored solutions that drive 
+                measurable results. We are committed to empowering organizations with the tools 
+                and knowledge needed to leverage data effectively.
+              </p>
+            </div>
+          </FadeIn>
+          
+          <div className="flex-1 lg:max-w-lg">
+            <FadeIn>
+              <AboutVisual />
+            </FadeIn>
+          </div>
         </div>
-      </PageIntro>
+      </Container>
       <Container className="mt-16">
         <StatList>
           <StatListItem value="5+" label="Years of expertise" />
