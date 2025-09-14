@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     template: '%s - Syyft',
     default: 'Syyft',
   },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {

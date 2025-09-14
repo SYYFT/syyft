@@ -9,6 +9,8 @@ import { SectionIntro } from '../components/SectionIntro'
 import { StylizedImage } from '../components/StylizedImage'
 import { Testimonial } from '../components/Testimonial'
 import { RealWorldImpact } from '../components/RealWorldImpact'
+import { HeroVisual } from '../components/HeroVisual'
+import { ServicesEnhancement } from '../components/ServicesEnhancement'
 import { Users } from 'lucide-react'
 import imageLaptop from '../images/laptop.jpg'
 import { 
@@ -27,7 +29,11 @@ import {
   TrendingUp,
   Sliders,
   Calendar,
-  X
+  X,
+  ArrowRight,
+  CheckCircle,
+  BarChart3,
+  Cog
 } from 'lucide-react'
 import { Button } from '../components/Button'
 
@@ -84,6 +90,13 @@ function KeyFeatures() {
     { icon: Sliders, title: 'Custom Integrations', description: 'Seamless connections with your existing tools and platforms.' },
   ]
 
+  const processSteps = [
+    { step: "1", title: "Discovery", icon: Users },
+    { step: "2", title: "Analysis", icon: BarChart3 },
+    { step: "3", title: "Build", icon: Cog },
+    { step: "4", title: "Deploy", icon: CheckCircle }
+  ]
+
   return (
     <>
       <SectionIntro
@@ -113,6 +126,30 @@ function KeyFeatures() {
             </FadeIn>
           ))}
         </FadeInStagger>
+        
+        {/* Process Flow */}
+        <div className="mt-24 bg-neutral-50 rounded-2xl p-8">
+          <h3 className="text-lg font-semibold mb-6 text-center">Our Process</h3>
+          <div className="flex items-center justify-between max-w-3xl mx-auto">
+            {processSteps.map((step, index) => {
+              const Icon = step.icon
+              return (
+                <div key={index} className="flex items-center">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-neutral-900 rounded-full flex items-center justify-center mb-2 mx-auto">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="text-xs font-medium text-neutral-900">{step.step}</div>
+                    <div className="text-xs text-neutral-600 mt-1">{step.title}</div>
+                  </div>
+                  {index < processSteps.length - 1 && (
+                    <ArrowRight className="w-5 h-5 text-neutral-400 mx-4 flex-shrink-0" />
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </Container>
     </>
   )
@@ -161,6 +198,8 @@ function Services() {
             </ListItem>
           </List>
         </div>
+        
+        <ServicesEnhancement />
       </Container>
     </>
   )
@@ -232,7 +271,7 @@ function AboutMe() {
 
 export const metadata: Metadata = {
   description:
-    'Data consultant helping small organizations and founders adopt modern data tools. Small teams. Smart data.',
+    'Data consultant helping small organizations and founders adopt modern data tools. Adopting Data Shouldn\'t be Hard.',
 }
 
 export default async function Home() {
@@ -240,10 +279,11 @@ export default async function Home() {
     <>
 
       <Container className="mt-24 sm:mt-32 md:mt-56">
-        <div className="flex flex-col md:flex-row items-start justify-between">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
           <FadeIn className="max-w-3xl">
-            <h1 className="hero-title font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-              Small teams. Smart data.
+            <h1 className="hero-title font-display text-6xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-8xl lg:text-[6.5rem] leading-none">
+              <span className="block">Data Adoption</span>
+              <span className="block"> Shouldn't Be Hard</span>
             </h1>
             <p className="hero-description mt-6 text-xl text-neutral-600">
               Syyft helps small organizations and founders adopt modern data tools without the complexity 
@@ -259,6 +299,12 @@ export default async function Home() {
               </Button>
             </div>
           </FadeIn>
+          
+          <div className="flex-1 lg:max-w-lg">
+            <FadeIn>
+              <HeroVisual />
+            </FadeIn>
+          </div>
         </div>
       </Container>
 
